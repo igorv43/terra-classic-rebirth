@@ -34,12 +34,12 @@ Instead of the builder assembling everything alone (data layer, bridges, executi
 * **Data Availability** for their rollup (Evolve module on the L1)
 * **Cross-chain execution** — trigger contracts on ETH, SOL, BSC
 * **Cross-chain treasury without multisig** (Interchain Accounts)
-* **Interoperability** (Hyperlane)
+* **Interoperability** (Hyperlane) — the on-ramp that attracts builders (foundation, not a revenue line)
 * **Collateralized stablecoin** as the means of payment for the infrastructure
 
-> **We give the builder complete infrastructure. They build on top of it — and every tool they use generates revenue for Terra Classic.**
+> **We give the builder complete infrastructure. They build on top of it — and every revenue-generating tool they use feeds Terra Classic's treasury.**
 
-Each module is, at the same time, **a tool for the builder and a recurring revenue source for the network**. It is this combination — complete infrastructure + usage-based revenue — that sustains TC without depending on inflation, burning, or speculation. And it is also what makes it hard to copy: the strength is not in any single piece, but in the **kit working together, in the same place**.
+Each revenue module (cross-chain execution, DA, stablecoin) is, at the same time, **a tool for the builder and a recurring revenue source for the network** — while Hyperlane is the foundation that brings builders in. It is this combination — complete infrastructure + usage-based revenue — that sustains TC without depending on inflation, burning, or speculation. And it is also what makes it hard to copy: the strength is not in any single piece, but in the **kit working together, in the same place**.
 
 | Objective | Do NOT depend on | Build |
 |---|---|---|
@@ -92,7 +92,7 @@ Greater economic security for the network
 
 | # | Pillar | What it sells | Maturity |
 |---|---|---|---|
-| 1 | **Hyperlane / Interoperability** | Cross-chain bridges and messages | ✅ Already in production on TC |
+| 1 | **Hyperlane / Interoperability** | Foundation / on-ramp — attracts builders and liquidity. **Does not generate network revenue** (bridge fees go to relayer operators and UI hosts) | ✅ Already in production on TC |
 | 2 | **Interchain Accounts (Cross-chain Execution + Treasury)** | Remote execution and custody without multisig for any project (CW20, modular/sovereign, DAOs) — fee per transaction to the treasury | 🟡 Primitive exists (Hyperlane ICA) → needs hardening |
 | 3 | **Data Availability on the L1 (via Evolve)** | Blob storage for rollups (revenue per blob) | 🔴 To be built — TC does not yet have a DA module |
 | 4 | **Decentralized Treasury** | Productive multichain reserves | 🟡 Depends on Pillar 2 |
@@ -141,9 +141,9 @@ Phases are **sequential and conditional**: each one only receives full funding a
 
 **Target integrations:** Ethereum · BNB Chain · Solana · Cosmos (IBC) · Injective
 
-**Real status:** TC already has a Hyperlane deployment on mainnet. It is the proof of concept for revenue before expanding.
+**Real status:** TC already has a Hyperlane deployment on mainnet — proof that the team can ship.
 
-**Revenue:** cross-chain message/transfer fees + IGP (Interchain Gas Payment).
+> ⚠️ **Important — Hyperlane does NOT generate revenue for the network.** Cross-chain message fees go to the **relayer operators**, and the UI fees go to **whoever hosts the interface**. Hyperlane is a **bridge tool**: its role is to attract builders, liquidity, and users into Terra Classic. It is the **on-ramp / foundation that makes every other phase possible — not a revenue source**. The actual network revenue starts in Phase 2.
 
 ---
 
@@ -267,7 +267,7 @@ Charge per blob  →  Revenue  →  Treasury
 
 **Enabled by Phase 2:** with Interchain Accounts, TC can finally hold and manage reserves in **ETH, SOL, BTC, and stablecoins** under on-chain governance control — without a human multisig.
 
-**Revenue sources:** Hyperlane · Cross-chain execution · DA (blob fees) · Stablecoins · services.
+**Revenue sources:** Cross-chain execution · DA (blob fees) · Stablecoins · services. *(Hyperlane is the on-ramp, not a revenue line.)*
 
 **Treasury governance is critical:** custody via audited contracts, transparent rules, limits/timelocks, public accountability. A large treasury without this is a target and a capture risk.
 
@@ -281,11 +281,10 @@ Charge per blob  →  Revenue  →  Treasury
 
 ```text
 User → Delegates LUNC → Shares in the Revenue
-                          ├─ Hyperlane
-                          ├─ Cross-chain execution
+                          ├─ Cross-chain execution (fees)
                           ├─ Data Availability (blob fees)
                           ├─ Stablecoins
-                          └─ Infrastructure
+                          └─ Infrastructure services
 ```
 
 Staking stops being an inflationary subsidy and starts representing **economic participation in a business that generates cash**. It is, on its own, one of the strongest concepts in the document.
@@ -374,13 +373,15 @@ Terra Classic can operate in: interoperability, cross-chain execution, treasury 
 
 > ⚠️ **Purely illustrative scenarios**, based on premises to be validated. They are not forecasts. The "Premise" column shows what would need to be true.
 
-| Scenario | Hyperlane | Cross-chain execution | DA (blob fees) | Stablecoins | **Total/year** | Core premise |
-|---|---|---|---|---|---|---|
-| **Conservative** | $2M | $3M | $5M | — | **$10M** | Hyperlane with modest traction, execution in beta, few rollups posting |
-| **Moderate** | $10M | $20M | $20M | $10M | **$60M** | Execution adopted + several rollups on DA + 1 live stablecoin |
-| **Aggressive** | $25M | $50M | $50M | $25M | **$150M** | TC becomes a reference DA + infra in multichain |
+> **Note:** Hyperlane is **not** a revenue line (its fees go to relayers/UI hosts). Revenue comes only from the modules below.
 
-**Honest reading:** the conservative scenario ($10M/year) would already be a **historic achievement** for TC in its current state. Moderate and aggressive depend on winning markets where TC is currently a latecomer. **Plan for the conservative; treat the rest as upside.**
+| Scenario | Cross-chain execution | DA (blob fees) | Stablecoins | **Total/year** | Core premise |
+|---|---|---|---|---|---|
+| **Conservative** | $3M | $5M | — | **$8M** | Execution in beta, few rollups posting |
+| **Moderate** | $20M | $20M | $10M | **$50M** | Execution adopted + several rollups on DA + 1 live stablecoin |
+| **Aggressive** | $50M | $50M | $25M | **$125M** | TC becomes a reference DA + infra in multichain |
+
+**Honest reading:** the conservative scenario ($8M/year) would already be a **historic achievement** for TC in its current state. Moderate and aggressive depend on winning markets where TC is currently a latecomer. **Plan for the conservative; treat the rest as upside.**
 
 ---
 
@@ -417,7 +418,7 @@ Each phase only advances with a proven metric:
 
 | Phase | Exit metric to unlock the next |
 |---|---|
-| 1 — Hyperlane | Sustained monthly cross-chain volume + IGP revenue > operating cost |
+| 1 — Hyperlane | Sustained monthly cross-chain volume + builders/liquidity arriving (adoption metric — Hyperlane is the on-ramp, not revenue) |
 | 2 — Interchain Accounts | Executions paid by real users + 1st cross-chain reserve (ETH) managed on-chain via ICA, audited |
 | 3 — Data Availability | DA on the L1 (via Evolve) in production + ≥ 1 rollup posting blobs and paying blob fees |
 | 4 — Treasury | Publicly audited reserves, contract custody, limits/timelocks, quarterly report |
