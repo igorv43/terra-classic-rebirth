@@ -369,40 +369,7 @@ Terra Classic can operate in: interoperability, cross-chain execution, treasury 
 
 ---
 
-# FINANCIAL PROJECTIONS
-
-> ⚠️ **Purely illustrative scenarios**, based on premises to be validated. They are not forecasts. The "Premise" column shows what would need to be true.
-
-> **Note:** Hyperlane is **not** a revenue line (its fees go to relayers/UI hosts). Revenue comes only from the modules below. **Most of it comes from cross-chain execution — DA monetizes slowly and stays small in early years** (even Celestia, the DA leader, earns only thousands–tens of thousands per month in blob fees).
-
-| Scenario | Cross-chain execution | DA (blob fees) | Stablecoins | **Total/year** | What it requires |
-|---|---|---|---|---|---|
-| **Year 1 (beta)** | $0.4M | $0.1M | — | **~$0.5M** | ~10–15 builders, low volume |
-| **Conservative (target)** | $2.5M | $0.5M | — | **~$3M** | ~40 active builders moving ~$2.5B/yr @0.1% |
-| **Growth** | $10M | $2M | $5M | **~$17M** | 100+ builders + several rollups + 1 live stablecoin |
-| **Aggressive** | $30M | $8M | $20M | **~$58M** | TC becomes a reference multichain infra |
-
-### How do we reach the ~$3M/year target? (bottom-up)
-
-Cross-chain execution revenue follows a simple formula:
-
-```text
-Annual revenue  ≈  Volume moved  ×  Fee rate (~0.1%)
-```
-
-A 0.1% fee is competitive (a DEX charges ~0.3%; bridges ~0.05–0.1% — charging more drives builders away). At that rate:
-
-| Active builders | Avg volume per builder/month | Total volume/year | Revenue @0.1% |
-|---|---|---|---|
-| ~10 (beta) | ~$4M | ~$480M | ~$0.5M |
-| ~25 (traction) | ~$5M | ~$1.5B | ~$1.5M |
-| ~40 (strong) | ~$5.2M | ~$2.5B | ~$2.5M |
-
-In transaction terms (avg execution ≈ $3,000): ~$2.5B/year ≈ **~830,000 executions/year ≈ ~2,300/day**.
-
-**Honest reading:** ~$3M/year is **not a beta number — it's a "real traction" milestone** (~40 active projects moving billions, plus modest DA). In Year 1 (beta, ~10–15 builders) the realistic figure is **~$0.5M**. The $3M is the target as adoption builds. **The three levers to grow it:** (1) more builders — business development; (2) higher volume per builder — attract serious DeFi; (3) fee rate — but keep it low to stay competitive. **Plan for ~$0.5M in Year 1; treat $3M as the earned target, not a starting point.**
-
----
+#
 
 # 2030 GOAL
 
