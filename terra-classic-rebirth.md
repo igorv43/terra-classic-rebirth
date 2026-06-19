@@ -437,11 +437,6 @@ The risk is not in the vision — it is in the **temptation to do everything at 
 
 Done with focus and honesty, it is one of the few *realistic* rebirth theses for Terra Classic.
 
----
-
-*Vision document (v2.2 — presentation edition, without financial projections) — subject to governance debate and technical validation. This does not constitute financial advice nor a promise of return. For internal revenue modeling, see the full edition `terra-classic-rebirth.md`.*
-
----
 
 ### Authorship & credits
 
