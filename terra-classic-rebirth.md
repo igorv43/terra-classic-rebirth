@@ -1,10 +1,10 @@
 # TERRA CLASSIC 2030
 
-## From a Stablecoin Blockchain to Complete Infrastructure for the Multichain Builder
+## From a Survivor Chain to Complete Infrastructure for the Multichain Builder
 
-**Version 2.2** — Strategic Vision Document
+**Version 2.2 — Presentation edition (without financial projections)** · Strategic Vision Document
 
-> ⚠️ **Disclaimer**: This is a *vision and strategic direction* document, not a guaranteed execution plan. The financial projections are hypothetical scenarios, not promises. Every economic change described depends on on-chain governance, development resources, and market adoption. Nothing here is financial advice.
+> ⚠️ **Disclaimer**: This is a *vision and strategic direction* document, not a guaranteed execution plan. **It deliberately contains no revenue numbers or financial projections** — its purpose is to show the *potential and the direction*, not to promise figures. Every economic change described depends on on-chain governance, development resources, and market adoption. Nothing here is financial advice.
 
 ---
 
@@ -35,17 +35,47 @@ Instead of the builder assembling everything alone (data layer, bridges, executi
 * **Cross-chain execution** — trigger contracts on ETH, SOL, BSC
 * **Cross-chain treasury without multisig** (Interchain Accounts)
 * **Interoperability** (Hyperlane) — the on-ramp that attracts builders (foundation, not a revenue line)
-* **Collateralized stablecoin** as the means of payment for the infrastructure
 
 > **We give the builder complete infrastructure. They build on top of it — and every revenue-generating tool they use feeds Terra Classic's treasury.**
 
-Each revenue module (cross-chain execution, DA, stablecoin) is, at the same time, **a tool for the builder and a recurring revenue source for the network** — while Hyperlane is the foundation that brings builders in. It is this combination — complete infrastructure + usage-based revenue — that sustains TC without depending on inflation, burning, or speculation. And it is also what makes it hard to copy: the strength is not in any single piece, but in the **kit working together, in the same place**.
+Each revenue module (cross-chain execution, DA) is, at the same time, **a tool for the builder and a recurring revenue source for the network** — while Hyperlane is the foundation that brings builders in. It is this combination — complete infrastructure + usage-based revenue — that sustains TC without depending on inflation, burning, or speculation. And it is also what makes it hard to copy: the strength is not in any single piece, but in the **kit working together, in the same place**.
 
 | Objective | Do NOT depend on | Build |
 |---|---|---|
 | Sustainability | Inflation | Revenue from infrastructure services |
 | Security | Supply burning | Productive cross-chain treasury |
 | Growth | Speculation | Real builder adoption |
+
+---
+
+# THE TECHNICAL FOUNDATION IS ALREADY MODERN — COSMOS SDK v0.53
+
+A vision is only credible if the chain underneath it is current. Terra Classic just delivered a **major core upgrade: from Cosmos SDK v0.47.x (running since 2023) to v0.53.x** — jumping over the entire v0.50/v0.52 line in a single, non-breaking upgrade. This is not cosmetic: it puts TC on the **same modern tier as the most advanced chains in the Cosmos ecosystem**, and it is exactly the base the rest of this plan needs.
+
+### What the v0.53 upgrade unlocks
+
+* **Modern IBC (ibc-go v10 / IBC v2)** — the current interchain standard, and the door to **IBC Eureka**, which connects Cosmos to **Ethereum** with ZK light-client security. This is directly complementary to the cross-chain thesis (Phase 1–2): native, standards-based interoperability instead of bespoke bridges.
+* **`x/epochs`** — cron-like, time/block-based hooks for **automated on-chain actions** (reward distribution, oracle updates, periodic rebalancing). A natural primitive for the staking-as-revenue-sharing and treasury automation in this plan.
+* **`x/protocolpool`** — the community pool **decoupled from `x/distribution`**, giving far more flexible, transparent funding: governance grants, developer funding, and **protocol-owned liquidity**. This is the on-chain plumbing for the productive-treasury model (Phase 4).
+* **Unordered transactions** — "fire-and-forget" txs using a timeout timestamp instead of strict sequence numbers, reducing failed transactions in high-volume flows (DeFi swaps, bots) — useful for the cross-chain execution engine (Phase 2).
+* **Module upgrades** — improvements across `x/mint`, `x/gov`, `x/auth`, `x/bank`, and `x/staking`, plus modern developer APIs (Collections / KVStoreService) that make building the new modules (cross-chain execution, DA) faster and safer.
+
+### This puts Terra Classic ahead of most chains
+
+Running v0.53 is still rare — only a short list of top chains have made the jump. Terra Classic is now in that group:
+
+| Chain | On Cosmos SDK v0.53 |
+|---|---|
+| **Terra Classic** | ✅ (core v4.0.0 / v14_1 upgrade, 2026) |
+| Cosmos Hub | ✅ |
+| Babylon | ✅ |
+| MANTRA | ✅ |
+| Warden | ✅ |
+| Crypto.com / Cronos POS | ✅ |
+
+> 🛠️ **Why it matters for this plan:** every pillar that follows (cross-chain execution, treasury without multisig, DA, staking-as-revenue) is built **on top of a current, well-supported SDK with modern IBC** — not on a legacy stack. The upgrade is itself **proof the team can ship hard core changes**, and it removes the "old, abandoned chain" objection before the first revenue module is even built.
+>
+> *Chain list and feature set verified against public Cosmos Stack / Cosmos SDK sources as of mid-2026; SDK/IBC adoption moves fast — confirm before citing externally.*
 
 ---
 
@@ -94,10 +124,8 @@ Greater economic security for the network
 |---|---|---|---|
 | 1 | **Hyperlane / Interoperability** | Foundation / on-ramp — attracts builders and liquidity. **Does not generate network revenue** (bridge fees go to relayer operators and UI hosts) | ✅ Already in production on TC |
 | 2 | **Interchain Accounts (Cross-chain Execution + Treasury)** | Remote execution and custody without multisig for any project (CW20, modular/sovereign, DAOs) — fee per transaction to the treasury | 🟡 Primitive exists (Hyperlane ICA) → needs hardening |
-| 3 | **Data Availability on the L1 (via Evolve)** | Blob storage for rollups (revenue per blob) | 🔴 To be built — TC does not yet have a DA module |
+| 3 | **Data Availability on the L1 (via Evolve)** | Blob storage for rollups (revenue **by storage: size × retention**, not per transaction) | 🔴 To be built — TC does not yet have a DA module |
 | 4 | **Decentralized Treasury** | Productive multichain reserves | 🟡 Depends on Pillar 2 |
-| 5 | **Main Stablecoin** | Fully collateralized stablecoin | 🟡 Feasible, sensitive to regulation and reputation |
-| 6 | **Global Stablecoin System** | Multi-currency basket, segregated backing | 🔴 Very long term, depends on Pillar 5 |
 
 > **Sequencing principle:** the pillars are built **in order of maturity and dependency**, validating real revenue at each stage (see KPIs) before funding the next. Trying everything at once dilutes resources and kills the project.
 
@@ -108,23 +136,25 @@ Greater economic security for the network
 ```text
                            TERRA CLASSIC
                                   │
-      ┌───────────────────────────┼───────────────────────────┐
-      │                           │                           │
-      ▼                           ▼                           ▼
-  HYPERLANE              INTERCHAIN ACCOUNTS              STABLECOINS
- (interop base)        (execution + treasury)         (fuel of the infra)
-      │                           │                           │
-      └──────────────┬────────────┴────────────┬──────────────┘
-                     ▼                          ▼
-        DATA AVAILABILITY (L1 via Evolve)     TREASURY
-        (rollups post blobs → fees)        (productive ETH/SOL/BTC)
-                     │                          │
-                     └────────────┬─────────────┘
-                                  ▼
-                       RECURRING REVENUE
-                                  │
-                                  ▼
-                    STAKING WITH REAL REVENUE SHARING
+              ┌───────────────────┴───────────────────┐
+              │                                       │
+              ▼                                       ▼
+        HYPERLANE                          INTERCHAIN ACCOUNTS
+       (interop base)                      (execution + treasury)
+              │                                       │
+              └──────────────┬────────────────────────┘
+                             ▼
+        ┌────────────────────┴────────────────────┐
+        ▼                                          ▼
+DATA AVAILABILITY (L1 via Evolve)              TREASURY
+(rollups post blobs → fees)               (productive ETH/SOL/BTC)
+        │                                          │
+        └────────────────────┬─────────────────────┘
+                             ▼
+                  RECURRING REVENUE
+                             │
+                             ▼
+               STAKING WITH REAL REVENUE SHARING
 ```
 
 ---
@@ -139,7 +169,7 @@ Phases are **sequential and conditional**: each one only receives full funding a
 
 **Objective:** Terra Classic as a genuinely interoperable network.
 
-**Target integrations:** Ethereum · BNB Chain · Solana · Cosmos (IBC) · Injective
+**Target integrations:** Ethereum · BNB Chain · Solana · Cosmos (IBC)
 
 **Real status:** TC already has a Hyperlane deployment on mainnet — proof that the team can ship.
 
@@ -183,22 +213,32 @@ Verified result, asset under TC's on-chain control
 
 This **already exists as a primitive in Hyperlane** (`InterchainAccountRouter` / ICA) — it is not R&D from scratch, it is integration + hardening. The same model gives the protocol:
 
-* **Cross-chain contract execution** — sold per use (fee per intent/action).
-* **Cross-chain treasury without multisig** — TC becomes able to hold and manage productive ETH/SOL/BTC, controlled by on-chain governance.
+* **Cross-chain contract execution** — priced as **gas + a fixed fee**. The gas is pass-through to the chains involved (it pays validators, not the network); the **fixed fee is the network's revenue**.
+* **Cross-chain treasury operations** — a **fee per transaction** (deposit, swap, move liquidity, rebalance). This is the same primitive that also lets TC hold and manage productive ETH/SOL/BTC under on-chain governance, without a human multisig.
 
-### Who it serves: any project, not just governance
+### Who it serves: any project — including projects NOT on Terra Classic
 
-The cross-chain account-contract is **not exclusive to the network treasury** — it is an open primitive, available to **any project built on Terra Classic**:
+The cross-chain account-contract is **not exclusive to the network treasury, and not even exclusive to projects built on Terra Classic** — it is an open primitive:
 
 * **CW20 and CosmWasm contracts** — a CW20 token or dApp on TC can trigger actions on ETH/SOL/BSC (move liquidity, swap, buy/sell) directly from its own contract, without building its own bridge infrastructure or multisig.
 * **Modular projects / sovereign chains** — appchains and sovereign rollups that use TC gain the same cross-chain execution and custody power as a native service, instead of rebuilding everything themselves.
-* **Third-party DAOs and treasuries** — any DAO on TC can manage assets on other networks via on-chain governance, without human signers.
+* **Third-party DAOs and treasuries** — any DAO can manage assets on other networks via on-chain governance, without human signers.
+* **External projects on other chains** — a DAO or treasury living on Ethereum, Solana, or anywhere else can use Terra Classic purely as a **cross-chain execution hub**: they don't build their app on TC, they use TC as the *control plane* to operate across many chains from one place — for example, executing a Uniswap swap on Ethereum without juggling a multisig there.
 
-In other words: the same tool that unlocks the network treasury becomes a **sellable product for the entire ecosystem**.
+> **This is the biggest market expansion in the plan.** It moves the target from "projects built on TC" (a small market) to **"any treasury or DAO anywhere that is tired of running a separate multisig per chain"** (a huge market) — and every one of them pays a fee per execution to the community treasury, directly feeding the revenue engine.
+
+### Non-custodial by design: each user owns their account
+
+Critically, **Terra Classic does not custody anyone's funds.** Each user **instantiates their own contract, exclusive to them** — like Uniswap or Safe, TC is *infrastructure*, not a custodian. That account can sign and execute calls on other contracts (a Uniswap swap, a lending action), but the assets and control belong to the user, never to the network.
+
+Two consequences:
+
+* **Lower regulatory and custody risk** — the protocol is not a honeypot holding billions; it provides the rails, and users hold their own assets.
+* **The right pitch is "programmable cross-chain smart account," not "no multisig."** The value is not removing secure control — it is giving the user **one programmable account that reaches many chains** (with policies, automation, conditions), instead of juggling one multisig per chain. The user still controls it; they just control it better, from one place.
 
 ### The revenue model: every transaction feeds the community treasury
 
-**Every cross-chain execution — from any project, CW20 or modular — charges a fee.** And that fee goes **directly to Terra Classic's community treasury**.
+**Every cross-chain execution — from any project, CW20 or modular — charges a fee** (the fixed fee on contract execution, or the per-transaction fee on treasury operations). And that fee goes **directly to Terra Classic's community treasury**.
 
 ```text
 Any project (CW20 · modular · DAO · governance)
@@ -212,20 +252,41 @@ Remote account-contract (ETH / SOL / BSC)  ──► fee per transaction
 
 The more projects use cross-chain execution, the more transactions happen — and **the more the community treasury grows, recurrently and automatically**. It does not depend on TC's native volume: it depends on third-party adoption. This is the sustainable revenue engine.
 
+> 💎 **LUNC is the currency of the network.** Gas on the Terra Classic L1 and the network's fixed fee on every cross-chain execution are paid **in LUNC** — the destination-chain gas (ETH/SOL/BSC) is only passed through to that chain. So every service in the plan settles its network fees in LUNC, tying real usage back to demand for the token.
+
+### A high-volume use case: trading bots and automated strategies
+
+One of the most natural — and highest-volume — users of cross-chain execution is **automated trading**: arbitrage, market-making, DCA, grid, and liquidation **bots** that need to act on several chains at once. Instead of each team running its own multisig and infrastructure per chain, they can route their strategy through Terra Classic's cross-chain execution as a single control plane.
+
+> 🤖 **Why this matters for revenue:** bots are, by nature, **high-frequency** — projects that operate them generate **many transactions**, and **each transaction pays a fee to the community treasury**. More bot activity → more volume → more recurring fees, without depending on the price of LUNC.
+
+> ⚠️ **Fee model is still under study — no value is defined yet.** Whether the network fee on a bot/cross-chain transaction is a **fixed amount** or a **percentage per transaction**, and what that amount or percentage would be, is **not yet decided** — it is subject to governance and further study.
+
 ### Why this is the lock-in
 
 Whoever builds with TC gains cross-chain execution and treasury **without building and operating a multisig on each chain**. If they leave, they lose that access. That switching cost is the moat — not the price list.
 
-### 🚨 The point that decides everything: ISM security
+### 🚨 The point that decides everything: security (even when non-custodial)
 
-If the remote account is controlled by Hyperlane messages, then **the security of the entire cross-chain treasury = the security of the ISM (Interchain Security Module)** that validates those messages. An attacker who forges a valid message **drains all remote accounts at once**. Bridges/messengers are the #1 target for hacks in crypto — billions have already been lost on this vector.
+Non-custodial **relocates** the risk — it does not eliminate it. Two systemic risks remain:
 
-**Non-negotiable** requirements:
+**1. Shared template code.** Every user's account is "theirs," but all are instances of the **same template/factory contract**. A bug in that shared code drains *every* account at once — exactly what happened in the 2017 Parity multisig freeze (~$280M across all instances). Auditing the template is **existential**, not optional.
 
-1. **Robust ISM** — multisig ISM with a strong validator set and, ideally, economic security (staking/slashing of signers). Never the default configuration.
-2. **Hardened remote contract** — strict authorization (only accepts a message from the TC origin + legitimate sender), replay protection, clear upgrade governance.
-3. **Limits and timelocks** — value caps per execution and delays on large operations, to allow time to react to a forged message.
-4. **Heavy auditing** — this is custody of funds; a bug = total loss. Auditing is not optional.
+**2. The authorization model (the decisive design choice).** What authorizes a remote account to execute? If it executes *any* ISM-validated message, then an attacker who forges a valid message (by compromising the ISM) can make the user's own account sign the attacker's transaction — draining it **without the user's key**. Bridges/messengers are the #1 hack target in crypto.
+
+| Authorization model | Security |
+|---|---|
+| Executes any ISM-validated message | 🔴 ISM compromise = every account drainable |
+| Requires the **user's own signature** carried in the message (ISM only transports) | 🟢 ISM compromise alone is not enough — the user's key is also required |
+
+**Anchor authorization to the user's key**, so the non-custodial promise is real.
+
+**Non-negotiable requirements:**
+
+1. **Robust ISM** — multisig ISM with a strong validator set and, ideally, economic security (staking/slashing of signers). Never the default configuration. It is the shared trust base for everyone.
+2. **User-key-anchored authorization** — the remote account executes only with the user's own signature, not on message validity alone; plus replay protection and clear upgrade governance.
+3. **Audited template** — a bug in the shared contract is a collective loss. Audit is existential.
+4. **Limits and timelocks** — value caps per execution and delays on large operations, so even a forged message cannot drain everything instantly.
 
 ### Recommended technical sequence
 
@@ -251,7 +312,7 @@ Terra Classic DATA AVAILABILITY (L1 + Evolve)
 Charge per blob  →  Revenue  →  Treasury
 ```
 
-**Revenue:** fee per blob stored/published ("blob fees" model). The more rollups post on TC, the more the network earns — revenue that **grows with third-party adoption, not with TC's native volume**.
+**Revenue:** DA is charged **by storage, not per transaction** — a fee based on the **size of the data (bytes) and the retention period** of each blob ("blob fees" model). The more data rollups post on TC and the longer it is kept available, the more the network earns. This revenue **grows with third-party adoption, not with TC's native volume** — but note it is inherently low-margin per blob, and meaningful only once many high-throughput rollups post data.
 
 **Honest positioning:** the DA market already has well-funded, established leaders (Celestia, EigenDA, Avail) and is **price-competitive** — pure DA margins are thin and volume-driven. TC **does not win by being "just another cheap DA"** (a race to the bottom). It wins because its DA comes **bundled with the unique package**: whoever posts blobs on TC gets, in the same place, **cross-chain execution + treasury without multisig (Phase 2) + settlement + interop**. DA is the *front door* that brings the rollup; the cross-chain primitives are what lock it in and carry the higher margin.
 
@@ -265,11 +326,13 @@ Charge per blob  →  Revenue  →  Treasury
 
 **Objective:** accumulate productive assets that sustain the network regardless of the price of LUNC.
 
-**Enabled by Phase 2:** with Interchain Accounts, TC can finally hold and manage reserves in **ETH, SOL, BTC, and stablecoins** under on-chain governance control — without a human multisig.
+**Enabled by Phase 2:** with Interchain Accounts, TC can finally hold and manage reserves in **ETH, SOL, BTC, and third-party stablecoins (e.g., USDC, USDT)** under on-chain governance control — without a human multisig.
 
-**Revenue sources:** Cross-chain execution · DA (blob fees) · Stablecoins · services. *(Hyperlane is the on-ramp, not a revenue line.)*
+**Revenue sources:** Cross-chain execution · DA (blob fees) · services. *(Hyperlane is the on-ramp, not a revenue line.)*
 
 **Treasury governance is critical:** custody via audited contracts, transparent rules, limits/timelocks, public accountability. A large treasury without this is a target and a capture risk.
+
+> 🔗 **How the treasury sustainably funds staking** (the endowment/flywheel model — spending only the yield, never the principal, to replace inflation-funded staking), see the companion document: `sustainable-treasury-and-staking.md`.
 
 ---
 
@@ -283,7 +346,6 @@ Charge per blob  →  Revenue  →  Treasury
 User → Delegates LUNC → Shares in the Revenue
                           ├─ Cross-chain execution (fees)
                           ├─ Data Availability (blob fees)
-                          ├─ Stablecoins
                           └─ Infrastructure services
 ```
 
@@ -291,12 +353,16 @@ Staking stops being an inflationary subsidy and starts representing **economic p
 
 > ⚖️ **Regulatory warning:** distributing service revenue to stakers may characterize LUNC as a *security* in several jurisdictions. The mechanism design needs legal counsel before implementation.
 
+> 🔗 **The funding mechanism behind this model** — how staking transitions from inflation to real service revenue + endowment yield, and why payouts must be capped at (revenue + yield) to avoid an unsustainable-yield collapse — is detailed in `sustainable-treasury-and-staking.md`.
+
 ---
 
-## REVENUE DISTRIBUTION (illustrative example)
+## REVENUE DISTRIBUTION (how revenue would be split)
+
+For **every 100 units of revenue** the network earns, an illustrative split could be:
 
 ```text
-Hypothetical annual revenue = US$ 100M
+Of every 100 units of revenue:
 
 ├─ 40% Treasury        (reinvestment and productive reserves)
 ├─ 30% Staking         (delegator revenue sharing)
@@ -304,72 +370,17 @@ Hypothetical annual revenue = US$ 100M
 └─ 10% Reserve         (contingency / insurance fund)
 ```
 
-*Percentages are a starting point for governance, not final numbers.*
-
----
-
-## PHASE 5 — MAIN STABLECOIN (fuel of the infrastructure)
-
-**Objective:** create a **fully collateralized** stablecoin — the exact opposite of the UST mistake — to be the **means of payment for the infrastructure itself** (execution, rollups, settlement, lending).
-
-**Non-negotiable characteristics:**
-
-* ✅ Real and auditable collateral (no algorithm, no reflexivity)
-* ✅ Redeemable 1:1
-* ✅ Multichain
-* ✅ Public, continuous proof of reserves (PoR)
-
-```text
-Real collateral (USDC / T-bills) → Terra Stablecoin → [Execution · Rollups · Lending · Settlement] → Fees → Treasury
-```
-
-The business logic: builders and users pay for the infrastructure in the Terra stablecoin → the fees feed the treasury → the profit circulates to the whole network via staking.
-
-> 🚨 **The most politically delicate phase.** TC carries the scar of UST. The new stablecoin **must** be visibly and technically different (full collateralization, radical transparency) — or the market rejects it by association. Done right, it is also the biggest opportunity for reputation rehabilitation.
-
----
-
-## PHASE 6 — GLOBAL STABLECOIN SYSTEM (segregated backing)
-
-**Only after** the main stablecoin is validated, audited, and has real adoption beyond TC itself.
-
-Expansion into a multi-currency basket (target list): USD · EUR · BRL · GBP · AUD · CAD · JPY · CHF · KRW · CNY · SGD · MXN · INR · ZAR · SEK · NOK · DKK · TRY · ARS · CLP · COP · NZD.
-
-The idea: the 22 stablecoins use the main Terra stablecoin as a rail/fuel to pay for the infrastructure, generating profit for the network.
-
-### 🚨 Contagion risk — requires segregated backing
-
-Stacking stablecoins (the 22 backed *by* the Terra stablecoin) recreates the **category of error that killed UST**: second-degree collateral and a single point of failure. If the base wobbles, **all 22 wobble at the same time**.
-
-**Non-negotiable rules for this phase:**
-
-* Each of the 22 must have its **own traceable backing** (even if operationally routed through the main Terra stablecoin) — not pure stacked collateral.
-* **Proof of reserves per currency**, never aggregated.
-* **Zero algorithmic/reflexive component** at any layer.
-* Treat it as a **very-long-term north star**, not a roadmap deliverable: each fiat currency requires a banking partner, regulated custody, and a license per jurisdiction. Each currency is a regulatory project in itself.
-
-```text
-                   USD Stablecoin (anchor, real backing)
-      ┌─────────────┬─────┼─────┬─────────────┐
-      ▼             ▼     ▼     ▼             ▼
-    EUR           BRL   GBP   JPY           AUD
- (own traceable backing + PoR per currency)
-      └─────────────┴─────┼─────┴─────────────┘
-                          ▼
-                   Terra Classic (settlement layer)
-```
+*Proportions only — a starting point for governance, not final numbers, and not a revenue forecast.*
 
 ---
 
 # ADDRESSABLE MARKET
 
-Terra Classic can operate in: interoperability, cross-chain execution, treasury without multisig, infrastructure for builders, stablecoins, settlement.
+Terra Classic can operate in: interoperability, cross-chain execution, treasury without multisig, infrastructure for builders, settlement.
 
-**Defensible differentiator:** very few networks offer *DA + mature interop + cross-chain execution + treasury without human custody + collateralized stablecoins*, integrated. TC does not beat Celestia on *cheap* DA — it wins because its DA comes **bundled** with the cross-chain primitives the rollup also needs. The thesis wins by choosing the **niche where the combination matters**, not by competing head-on in each isolated category.
+**Defensible differentiator:** very few networks offer *DA + mature interop + cross-chain execution + treasury without human custody*, integrated. TC does not beat Celestia on *cheap* DA — it wins because its DA comes **bundled** with the cross-chain primitives the rollup also needs. The thesis wins by choosing the **niche where the combination matters**, not by competing head-on in each isolated category.
 
 ---
-
-#
 
 # 2030 GOAL
 
@@ -377,7 +388,6 @@ Transform Terra Classic into:
 
 * A **Data Availability layer** that earns revenue per rollup blob (via Evolve on the L1)
 * A layer of **cross-chain execution and treasury without multisig**
-* A hub of **collateralized** stablecoins (rehabilitating the reputation)
 * An infrastructure provider with a **productive treasury** (ETH/SOL/BTC)
 
 **Final goal:** a treasury capable of sustaining network development and security **regardless of the market cycle**, replacing dependence on inflation and speculation with revenue from infrastructure services.
@@ -387,14 +397,12 @@ Transform Terra Classic into:
 # ⚠️ RISKS AND CRITICAL DEPENDENCIES
 
 1. **Cross-chain security (ISM) = risk #1** — the entire remote treasury depends on the security of Hyperlane messages. Requires a strong ISM, limits, timelocks, and auditing. Bridges are the industry's biggest hack target.
-2. **Execution vs. resources** — TC does not have Ethereum/Celestia's R&D budget. Six simultaneous pillars guarantee failure. **Brutal focus is mandatory.**
+2. **Execution vs. resources** — TC does not have Ethereum/Celestia's R&D budget. Too many simultaneous pillars guarantee failure. **Brutal focus is mandatory.**
 3. **Building DA from scratch is high technical risk** — TC has no DA today; integrating Evolve into the L1 (blobs, DAS, light clients, availability guarantees) is heavy engineering. And the DA market is mature and cheap (Celestia/EigenDA). It only wins as an integrated niche package, never as generic DA.
 4. **Cheap fees as a hook** — race to the bottom; it must be a consequence, not an argument.
-5. **Stablecoin contagion** — the 22 cannot be pure second-degree collateral; they require segregated backing and PoR per currency.
-6. **UST reputation** — any new stablecoin carries the historical weight; radical transparency is mandatory.
-7. **Regulatory risk** — stablecoins (custody/licenses) and staking-with-revenue (LUNC as a security) need legal structuring before code.
-8. **Treasury governance** — without custody in audited contracts, limits, and accountability, it becomes a capture risk.
-9. **Dependence on dev talent** — the whole thesis depends on attracting and retaining engineers. Without it, it's just a PDF.
+5. **Regulatory risk** — staking-with-revenue (LUNC as a security) needs legal structuring before code.
+6. **Treasury governance** — without custody in audited contracts, limits, and accountability, it becomes a capture risk.
+7. **Dependence on dev talent** — the whole thesis depends on attracting and retaining engineers. Without it, it's just a PDF.
 
 ---
 
@@ -408,8 +416,6 @@ Each phase only advances with a proven metric:
 | 2 — Interchain Accounts | Executions paid by real users + 1st cross-chain reserve (ETH) managed on-chain via ICA, audited |
 | 3 — Data Availability | DA on the L1 (via Evolve) in production + ≥ 1 rollup posting blobs and paying blob fees |
 | 4 — Treasury | Publicly audited reserves, contract custody, limits/timelocks, quarterly report |
-| 5 — Stablecoin | Continuous public PoR + adoption beyond TC itself |
-| 6 — Basket | Main stablecoin profitable and stable for ≥ 12 months, before any expansion |
 
 ---
 
@@ -424,13 +430,19 @@ The two strongest concepts are:
 
 The risk is not in the vision — it is in the **temptation to do everything at once** and in **underestimating cross-chain security**. Success depends on:
 
-1. **Sequencing** (Hyperlane → Interchain Accounts → DA via Evolve → stablecoins)
+1. **Sequencing** (Hyperlane → Interchain Accounts → DA via Evolve → productive treasury)
 2. **Focusing on the niche** where the integrated package is defensible
-3. **Treating projections as hypotheses**, planning for the conservative case
+3. **Validating each phase with real, on-chain metrics** before scaling the next
 4. **Taking ISM security and regulatory risk seriously from day 1**
 
 Done with focus and honesty, it is one of the few *realistic* rebirth theses for Terra Classic.
 
 ---
 
-*Vision document (v2.2) — subject to governance debate and technical validation. This does not constitute financial advice nor a promise of return.*
+*Vision document (v2.2 — presentation edition, without financial projections) — subject to governance debate and technical validation. This does not constitute financial advice nor a promise of return. For internal revenue modeling, see the full edition `terra-classic-rebirth.md`.*
+
+---
+
+### Authorship & credits
+
+The **idea, vision, and intellectual property of this document belong to Igor Veras**, who conceived and directs the strategy described here. **Research, drafting, and editing were assisted by Claude (Anthropic, via claude.ai).** AI-assisted research can contain inaccurate or outdated data — figures, technical claims, version numbers, and the list of chains/SDK versions should be independently verified before being acted upon or cited externally.
